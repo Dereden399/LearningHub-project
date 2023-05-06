@@ -19,7 +19,7 @@ $ docker-compose up
 
 ### **Note**
 
-The Deno container does not work well on Apple ARM chips. If you want to run the application on these machines, change the first line in the Dockerfile in the root directory from _FROM denoland/deno:alpine-1.29.2_ to _FROM lukechannings/deno:v1.29.2_
+The Deno container does not work well on Apple ARM chips. If you want to run the application on these machines, you can do nothing, because the project is already set up to work. If you have a windows machine and want to use an original container, change the first line in the Dockerfile in the root drill-and-practice directory from _FROM lukechannings/deno:v1.29.2_ to _FROM denoland/deno:alpine-1.29.2_
 
 ## Testing
 
