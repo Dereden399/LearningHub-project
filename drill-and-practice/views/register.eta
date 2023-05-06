@@ -1,0 +1,21 @@
+<% layout("./layouts/layout.eta") %>
+
+<div class="container text-center mt-5" style="max-width: 20rem;"> 
+  <form action="/auth/register" method="POST">
+    <h1>Register</h1>
+    <p class="lead" style="margin-top: -1rem;">Join us now</p>
+    <div class="form-floating">
+      <input type="email" name="email" id="email-field" class="form-control" placeholder="name@example.com" aria-describedby="email-validation" value="<%= it.email%>"/>
+      <label for="email-field">Email</label>
+      <%~ includeFile("./partials/error.eta", {errors: it.errors, attribute: "email", aria: "email-validation"})%>
+    </div>
+    <div class="form-floating mt-4">
+      <input type="password" name="password" id="password-field" class="form-control" placeholder="Password" aria-describedby="password-validation" value="<%= it.password%>"/>
+      <label for="password-field">Password</label>
+      <%~ includeFile("./partials/error.eta", {errors: it.errors, attribute: "password", aria: "password-validation"})%>
+    </div>
+    <input type="submit" class="btn btn-lg text-white btn-purple p-2 mt-3 w-100 rounded-4" value="Register"/>
+  </form>
+  <p class="lead">Already registered? <a href="/auth/login" class="link">Login</a> here</p>
+</div>
+<script src="/static/invalidFieldCheck.js"></script>

@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand fs-2" href="/">Learning<span class="border-bottom border-4 border-purple">Hub</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/topics">Topics</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/quiz">Quiz</a>
+        </li>
+      </ul>
+      <%if (!it.user) {%>
+        <div class="row row-cls-2">
+          <a href="/auth/register" class="btn btn-purple text-white rounded-3 p-1 mx-1 col">Register</a>
+          <a href="/auth/login" class="btn btn-purple text-white rounded-3 p-1 mx-1 col">Login</a>
+        </div>
+      <%} else {%>
+        <div>
+          <form method="POST" action="/auth/logout">
+            <input type="submit" class="btn btn-purple text-white rounded-3 p-1 mx-1" value="Logout" />
+          </form>
+        </div>
+      <%}%>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,6 @@
+<% layout("./layouts/layout.eta") %>
+
+<div class="container d-flex flex-column justify-content-center text-center">
+  <h2 class="display-5 text-center">This topic has no questions</h2>
+  <a href="/quiz" class="link">Back to the topics</a>
+</div>

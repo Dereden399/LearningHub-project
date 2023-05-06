@@ -1,0 +1,58 @@
+.border-purple {
+  border-color: var(--bs-purple) !important;
+}
+
+.nav-link {
+  border-bottom: 4px solid transparent;
+}
+
+.nav-link:hover, .nav-link:focus {
+  border-bottom-color: var(--bs-purple);
+}
+
+.topic-card {
+  max-width: 20rem;
+  min-height: 12rem;
+  background-color: rgb(224, 217, 241);
+  transition: .3s;
+}
+
+.topic-card:hover {
+  transform:scale(1.05);
+}
+
+.link {
+  color: var(--bs-purple);
+}
+
+.topics-search-field {
+  border-radius: 20px;
+  padding: 2px 4px 2px 4px;
+}
+
+.topics-search-field:focus {
+  box-shadow: inset 0 -1px 0 #ddd;
+  outline: none;
+}
+
+.btn-purple {
+  background-color: var(--bs-purple) !important;
+}
+
+.btn-purple:hover {
+  background-color: rgb(92, 59, 165) !important;
+}
+
+.question {
+  background-color: rgb(224, 217, 241);
+  transition: .3s;
+}
+
+.question:hover {
+  transform:scale(1.05);
+}
+
+.question-body {
+  background-color: var(--bs-body-bg) !important;
+  border-radius: 5rem;
+}

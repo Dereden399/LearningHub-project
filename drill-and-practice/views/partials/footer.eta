@@ -1,0 +1,5 @@
+<footer class="footer mt-auto bg-body-tertiary pt-3 text-center">
+  <div class="container">
+    <p>LearningHub project by <a href="https://github.com/Dereden399" class="link">Dereden</a></p>
+  </div>
+</footer>

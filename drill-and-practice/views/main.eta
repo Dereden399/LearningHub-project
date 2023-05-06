@@ -1,0 +1,34 @@
+<% layout("./layouts/layout.eta") %>
+
+<div class="container">
+  <h1 class="display-2 text-center">LearningHub project</h1>
+  <hr class="hr border-3" style="border-color: var(--bs-purple);"/>
+  <div class="row row-cols-2 mt-1">
+    <p class="lead">
+      Welcome to LearningHub, your go-to platform for repeated practice of learned content! Our application offers a comprehensive list of topics for
+      you to choose from, and allows you to create multiple-choice questions within those topics. With LearningHub, you can test your knowledge and
+      challenge yourself to improve your understanding of the subject matter. <a href="/auth/register" class="link"><i>Join</i></a> our community today and take your learning to the next level! <br /> Already have an account? Login <a href="/auth/login" class="link"><i>here</i></a> 
+    </p>
+    <div class="container">
+      <h3>Statistics:</h3>
+      <p>
+        Number of topics: <%= it.topicsCount%>
+      </p>
+      <p>
+        Number of questions: <%= it.questionsCount%>
+      </p>
+      <p>
+        Number of answers: <%= it.answersCount%>
+      </p>
+    </div>
+  </div>
+  <figure class="mt-5 text-end">
+    <blockquote class="blockquote">
+      <p>“He who learns but does not think, is lost! He who thinks but does not learn is in great danger.”</p>
+    </blockquote>
+    <figcaption class="blockquote-footer">
+      <p>Confucius</p>
+    </figcaption>
+  </figure>
+</div>
+

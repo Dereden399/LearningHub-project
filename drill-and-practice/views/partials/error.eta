@@ -1,0 +1,5 @@
+<% if (it.errors && it.errors[it.attribute]) { %>
+    <% Object.values(it.errors[it.attribute]).forEach((err) => { %>
+        <div class="invalid-feedback error text-start" id="<%= it.aria%>"><%= err %></div>
+    <% }); %>
+<% } %>

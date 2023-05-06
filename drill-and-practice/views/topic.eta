@@ -1,0 +1,38 @@
+<% layout("./layouts/layout.eta") %>
+
+<%if (it.topic) {%>
+<div class="container text-center">
+  <h1 class="display-2"><%= it.topic.name%></h1>
+  <div class="row row-cols-1 row-cols-md-2 mt-4 g-4">
+    <div class="col order-md-2">
+      <form method="POST" action="/topics/<%= it.topic.id%>/questions" class="bg-body-tertiary rounded p-2">
+        <h3>Add a question</h3>
+        <textarea class="form-control" aria-label="Question text" name="question_text" placeholder="Write question here..." value="<%= it.question_text%>" aria-describedby="questionValidation"></textarea>
+        <%~ includeFile("./partials/error.eta", {errors: it.errors, attribute: "question_text", aria: "questionValidation"})%>
+        <div class="d-flex justify-content-end mt-2">
+          <input type="submit" id="question-add-button" value="Add" class="btn btn-purple text-white p-2 px-5 me-2"/>
+        </div>
+      </form>
+    </div>
+    <div class="col order-md-1">
+      <div class="bg-body-tertiary rounded p-2 pb-4">
+        <h3>Questions:</h3>
+        <% if (it.questions && it.questions.length > 0) {%>
+          <% it.questions.map(q => {%>
+            <div class="p-2 question shadow mt-4 rounded-3 text-wrap text-break text-center" style="min-height: 3rem;">
+              <a href="/topics/<%= it.topic.id%>/questions/<%= q.id%>" id="question-link" class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"><b class="align-middle text-black"><%= q.question_text%></b></a>
+            </div>
+          <%})%>
+        <%} else {%>
+          <p class="lead">This topic has no questions yet. You can add one using the form.</p>
+        <%}%>
+      </div>
+    </div>
+  </div>
+</div>
+<%} else {%>
+<div class="container">
+  <h2 class="display-5 text-center">It seems, that the topic you are looking for does not exist...</h2>
+</div>
+<%}%>
+<script src="/static/invalidFieldCheck.js"></script>

@@ -1,0 +1,58 @@
+<% layout("./layouts/layout.eta") %>
+
+<div class="container question-body">
+<% if (it.question) {%>
+  <div class="card">
+    <div class="card-header d-flex justify-content-between">
+      <h1><%= it.question.question_text%></h1>
+      <div class="d-flex flex-column justify-content-center">
+        <a href="/topics/<%= it.question.topic_id%>" class="btn btn-purple text-white p-1 rounded-pill">Back to topic</a>
+      </div>
+    </div>
+    <div class="card-body">
+      <h2 class="card-title">Answers:</h2>
+      <% if (it.answers && it.answers.length > 0) {%>
+        <ul class="list-group">
+          <% it.answers.map(answer => {%>
+            <li class="list-group-item d-flex justify-content-between">
+              <div>
+                <% if (answer.is_correct) {%>
+                  <span class="badge rounded-pill text-bg-success">Correct</span>
+                <%}%>
+                <%= answer.option_text %>
+              </div>
+              <form method="POST" action="/topics/<%= it.question.topic_id%>/questions/<%= it.question.id%>/options/<%= answer.id%>/delete">
+                <input type="submit" id="delete-answer-button" value="Delete option" class="btn btn-danger rounded-pill p-1"/>
+              </form>
+            </li>
+          <%})%>
+        </ul>
+      <%} else {%>
+        <p class="lead">This question has no answers. You can add answer using the form</p>
+        <form method="POST" action="/topics/<%= it.question.topic_id%>/questions/<%= it.question.id%>/delete">
+          <input type="submit" value="Delete question" class="btn btn-danger btn-lg p-1" id="delete-question-button"/>
+        </form>
+      <%}%>
+    </div>
+  </div>
+  <form method="POST" action="/topics/<%= it.question.topic_id%>/questions/<%= it.question.id%>/options" class="bg-body-tertiary rounded-3 p-4 mt-4">
+    <h2>Add an answer option for the question</h2>
+    <div class="form-floating mt-2">
+      <textarea class="form-control" name="option_text" id="option_text-input" placeholder="Write an answer here..." value="<%= it.option_text%>" aria-describedby="option_text-validation"></textarea>
+      <label for="option_text-input">Answer</label>
+      <%~ includeFile("./partials/error.eta", {errors: it.errors, attribute: "option_text", aria: "option_text-validation"})%>
+    </div>
+    <div class="form-check mt-2">
+      <input class="form-check-input" type="checkbox" value="true" id="is_correct-input" name="is_correct"/>
+      <label for="is_correct-input">
+        Correct answer
+      </label>
+    </div>
+    <input type="submit" id="answer-option-submit-button" class="btn btn-purple text-white mt-2" value="Add"/>
+  </form>
+
+<%} else {%>
+  <h2 class="display-5 text-center">The question you are trying to open does not exist.</h2>
+<%}%>
+</div>
+<script src="/static/invalidFieldCheck.js"></script>
