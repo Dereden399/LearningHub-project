@@ -56,7 +56,7 @@ const addTopic = async ({ request, response, render, user }) => {
     await showTopics({ render }, topicData);
   } else {
     try {
-      await topicsService.addTopic(1, topicData.name);
+      await topicsService.addTopic(topicData.user_id, topicData.name);
       response.redirect("/topics");
     } catch (e) {
       topicData.errors = {
