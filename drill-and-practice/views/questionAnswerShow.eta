@@ -2,9 +2,9 @@
 
 <div class="container d-flex flex-column justify-content-center text-center">
   <% if (it.correct) {%>
-    <h2 class="display-5 text-center text-success text-lg">Correct answer!</h2>
+    <h2 class="display-5 text-center text-success text-lg">Correct!</h2>
   <%} else {%>
-    <h2 class="display-5 text-center text-danger text-lg">Incorrect answer!</h2>
+    <h2 class="display-5 text-center text-danger text-lg">Incorrect!</h2>
     <p class="lead">The correct option was "<%= it.answer%>"</p>
   <%}%>  
   <a href="/quiz/<%= it.topic_id%>" class="link">Next question</a>
