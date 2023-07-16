@@ -1,7 +1,7 @@
 # LearningHub project - for Web Software Development course
 
 This website allows you to create topics, questions, and add answers to them. You can also do small quizzes to review topics. The application uses the Deno Oak library to control the frontend and Playwright for automatic end-to-end testing. Although the application is fully rendered on the server, some client-side JavaScript is used to control small aspects of the site.
-The application is deployed to the Render.com website until 4 august 2023, you can find it here: https://learninghub.onrender.com
+The application is deployed to the Render.com website until 4 august 2023, you can find it here: https://learninghub.onrender.com (may be down sometimes)
 
 You can use admin account to test the website (admin@admin.com, 123456) or normal account (normal@normal.com, 123456)
 
